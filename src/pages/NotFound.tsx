@@ -1,22 +1,18 @@
-import React from "react";
-import { Button, Result } from "antd";
-import { useNavigate } from "react-router-dom";
-import { HOME_PATHNAME } from "../router";
+import { Link } from "react-router-dom";
 
-const NotFound: React.FC = () => {
-  const nav = useNavigate();
+export default function NotFound() {
   return (
-    <Result
-      status="404"
-      title="404"
-      subTitle="抱歉，您访问的页面不存在"
-      extra={
-        <Button type="primary" onClick={() => nav(HOME_PATHNAME)}>
-          返回首页
-        </Button>
-      }
-    />
+    <div className="page">
+      <div className="empty-state not-found">
+        <p className="not-found-code">404</p>
+        <h3>这条命令不存在</h3>
+        <p>页面可能被删掉了，或者链接里的分类名写错了。</p>
+        <div className="not-found-actions">
+          <Link to="/" className="btn-primary">
+            回到首页
+          </Link>
+        </div>
+      </div>
+    </div>
   );
-};
-
-export default NotFound;
+}
